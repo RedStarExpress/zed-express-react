@@ -10,7 +10,7 @@ export default function VerticalMenu() {
                     <div id="sidebar-menu">
                         <ul className="metismenu list-unstyled" id="side-menu">
                             <li>
-                                <NavLink to="/">
+                                <NavLink to="/admin/skaner-baza">
                                     <i className="bx bx-barcode"></i>
                                     <span data-key="t-dashboard">Skaner baza</span>
                                 </NavLink>
@@ -24,14 +24,21 @@ export default function VerticalMenu() {
                             </li>
 
                             <li>
-                                <NavLink to="/">
+                                <NavLink to="/admin/partiyalar">
+                                    <i className="bx bx-globe"></i>
+                                    <span data-key="t-dashboard">Partiyalar</span>
+                                </NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink to="/admin/news">
                                     <i className="bx bx-news"></i>
                                     <span data-key="t-dashboard">Yangiliklar</span>
                                 </NavLink>
                             </li>
 
                             <li>
-                                <NavLink to="/">
+                                <NavLink to="/admin/news">
                                     <i className="bx bx-key"></i>
                                     <span data-key="t-dashboard">Kod berish</span>
                                 </NavLink>

@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import ReactPaginate from 'react-paginate';
-import DeleteModal from './modal/DeleteModal';
+import React from 'react'
+import ReactPaginate from 'react-paginate'
 
-export default function Contacs() {
-    const [deleteModal, setDeleteModal] = useState({ isShow: false, id: 0 })
+export default function News() {
     const handlePageClick = (e) => {
         console.log(e);
     }
@@ -25,45 +23,29 @@ export default function Contacs() {
                     <table class="table table-bordered align-middle mb-0 table-striped table-hover">
                         <thead>
                             <tr className='bg-primary text-white text-center'>
-                                <th>№</th>
-                                <th>Ism familiyasi</th>
-                                <th>Telefon raqam</th>
-                                <th>Email</th>
-                                <th>Kelgan xabar</th>
-                                <th>Kelgan vaqti</th>
-                                <th>Qayerdan kelgani</th>
-                                <th>Ko'rilganligi</th>
-                                <th>Amallar</th>
+                                <th style={{ width: "5%" }}>№</th>
+                                <th style={{ width: "15%" }}>Media</th>
+                                <th style={{ width: "20%" }}>Sarlavha</th>
+                                <th style={{ width: "40%" }}>Matn</th>
+                                <th style={{ width: "20%" }}>Amallar</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr className='text-center'>
                                 <th>1</th>
-                                <td>Raxmatov Keldiyor</td>
-                                <td>+998 94 123 45 17</td>
-                                <td>keldiyor@gmail.com</td>
-                                <td>Assalom aleykum</td>
-                                <td>13.03.2003 <br /> 15:40</td>
-                                <td>Telegram bot</td>
-                                <td>
-                                    <div className="btn btn-success font-size-18 mx-1">
-                                        <i className="bx bx-edit"
-                                        // onClick={() => editModalFunc(item)}
-                                        ></i>
-                                    </div>
-                                </td>
+                                <td><img src="https://cdn.trend.az/2019/03/20/novruz_200319.jpg" alt="" style={{ width: "100px" }} /></td>
+                                <td>Navruz bayrami muborak</td>
+                                <td>Navro‘z bayramining qachon vujudga kelgani haqida bizgacha yetib kelgan qadimiy manbalardan shu narsa ko‘rinadiki, u O‘rta Osiyo, Eron va Afg‘onistonda Ahamoniylar davrida (miloddan avvalgi VI asrlarda) keng tarqalgan. Shu ma'noda Navro‘zning tarixini 25-30 asrga ega deb taxmin qilish mumkin.</td>
                                 <td className="text-center">
                                     <div className="btn btn-success font-size-18 mx-1">
                                         <i className="bx bx-edit"
                                         // onClick={() => editModalFunc(item)}
                                         ></i>
-                                        Javob yozish
                                     </div>
                                     <div className="btn btn-danger font-size-18 mx-1">
                                         <i className="bx bx-trash"
                                         // onClick={() => setDeleteModal({ isShow: true, id: item.id })}
                                         ></i>
-                                        O'chirish
                                     </div>
                                 </td>
                             </tr>
@@ -86,12 +68,6 @@ export default function Contacs() {
                     />
                 </div>
             </div>
-
-            {
-                deleteModal.isShow && (
-                    <DeleteModal />
-                )
-            }
         </>
     )
 }

@@ -1,4 +1,6 @@
 import React from 'react'
+import logo from "./2.png"
+
 
 export default function LoadingSite() {
     return (
@@ -10,7 +12,7 @@ export default function LoadingSite() {
                             <div class="text-center">
                                 <div class="mb-5">
                                     <a href="index.html">
-                                        <img src="assets/images/logo-sm.svg" alt="" height="50" class="me-1" /><span class="logo-txt text-dark font-size-22">ZedCargo</span>
+                                        <img src={logo} alt="" height="100" class="me-1" /><span class="logo-txt text-dark font-size-22"></span>
                                     </a>
                                 </div>
 
