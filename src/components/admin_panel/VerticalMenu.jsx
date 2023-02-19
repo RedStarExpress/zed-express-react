@@ -38,14 +38,14 @@ export default function VerticalMenu() {
                             </li>
 
                             <li>
-                                <NavLink to="/admin/news">
+                                <NavLink to="/admin/code">
                                     <i className="bx bx-key"></i>
                                     <span data-key="t-dashboard">Kod berish</span>
                                 </NavLink>
                             </li>
 
                             <li>
-                                <NavLink to="/admin/ustozlar">
+                                <NavLink to="/admin/teacher">
                                     <i className="bx bx-user"></i>
                                     <span data-key="t-dashboard">Ustozlar</span>
                                 </NavLink>

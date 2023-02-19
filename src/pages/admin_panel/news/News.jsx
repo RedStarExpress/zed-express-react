@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactPaginate from 'react-paginate'
+import Pagination from '../../../components/Pagination';
 
 export default function News() {
     const handlePageClick = (e) => {
@@ -10,7 +10,7 @@ export default function News() {
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h2 class="mb-sm-0 font-size-24">Sayt yoki bot orqali bog'langanlar</h2>
+                        <h2 class="mb-sm-0 font-size-24">Yangiliklar</h2>
 
                         <div class="page-title-right">
                             <div className="btn btn-primary">Yangi qo'shish</div>
@@ -54,18 +54,7 @@ export default function News() {
                 </div>
 
                 <div className="col-lg-12 mt-2">
-                    <ReactPaginate
-                        previousLabel="<<"
-                        nextLabel=">>"
-                        pageCount={100 / 10}
-                        breakLabel="..."
-                        className="paginate"
-                        activeClassName="active"
-                        pageRangeDisplayed={3}
-                        onPageChange={handlePageClick}
-                        forcePage={1}
-                        onPageActive={1}
-                    />
+                    <Pagination />
                 </div>
             </div>
         </>

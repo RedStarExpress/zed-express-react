@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactPaginate from 'react-paginate'
+import Pagination from '../../../components/Pagination';
 
 export default function TeacherPage() {
     const handlePageClick = (e) => {
@@ -54,18 +55,7 @@ export default function TeacherPage() {
                 </div>
 
                 <div className="col-lg-12 mt-2">
-                    <ReactPaginate
-                        previousLabel="<<"
-                        nextLabel=">>"
-                        pageCount={100 / 10}
-                        breakLabel="..."
-                        className="paginate"
-                        activeClassName="active"
-                        pageRangeDisplayed={3}
-                        onPageChange={handlePageClick}
-                        forcePage={1}
-                        onPageActive={1}
-                    />
+                    <Pagination />
                 </div>
             </div>
         </>

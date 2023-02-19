@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
-import ReactPaginate from 'react-paginate';
-import DeleteModal from './modal/DeleteModal';
+import AlertContent, { Alert } from '../../../components/Alert';
+import DeleteModal from '../../../components/DeleteModal';
+import Pagination from '../../../components/Pagination';
 
 export default function Contacs() {
+    const [alert, setAlert] = useState({ open: false, color: "", text: "" });
     const [deleteModal, setDeleteModal] = useState({ isShow: false, id: 0 })
     const handlePageClick = (e) => {
         console.log(e);
+    }
+
+    const deleteFunc = () => {
+        setDeleteModal({ isShow: false, id: 0 })
+        Alert(setAlert, "success", "Muvafaqqiyatli o'chirildi");
     }
     return (
         <>
@@ -13,10 +20,6 @@ export default function Contacs() {
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                         <h2 class="mb-sm-0 font-size-24">Sayt yoki bot orqali bog'langanlar</h2>
-
-                        <div class="page-title-right">
-                            <div className="btn btn-primary">Yangi qo'shish</div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -24,16 +27,16 @@ export default function Contacs() {
                 <div className="col-lg-12">
                     <table class="table table-bordered align-middle mb-0 table-striped table-hover">
                         <thead>
-                            <tr className='bg-primary text-white text-center'>
-                                <th>№</th>
-                                <th>Ism familiyasi</th>
-                                <th>Telefon raqam</th>
-                                <th>Email</th>
-                                <th>Kelgan xabar</th>
-                                <th>Kelgan vaqti</th>
-                                <th>Qayerdan kelgani</th>
-                                <th>Ko'rilganligi</th>
-                                <th>Amallar</th>
+                            <tr className='bg-primary text-white text-center align-middle'>
+                                <th style={{ width: "5%" }}>№</th>
+                                <th style={{ width: "15%" }}>Ism familiyasi</th>
+                                <th style={{ width: "10%" }}>Telefon raqam</th>
+                                <th style={{ width: "10%" }}>Email</th>
+                                <th style={{ width: "20%" }}>Kelgan xabar</th>
+                                <th style={{ width: "10%" }}>Kelgan vaqti</th>
+                                <th style={{ width: "10%" }}>Qayerdan kelgani</th>
+                                <th style={{ width: "10%" }}>Ko'rilganligi</th>
+                                <th style={{ width: "10%" }}>Amallar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,24 +49,17 @@ export default function Contacs() {
                                 <td>13.03.2003 <br /> 15:40</td>
                                 <td>Telegram bot</td>
                                 <td>
-                                    <div className="btn btn-success font-size-18 mx-1">
-                                        <i className="bx bx-edit"
-                                        // onClick={() => editModalFunc(item)}
-                                        ></i>
+                                    <div style={{ display: "flex", gap: "4px", justifyContent: "center" }}>
+                                        <input class="form-check-input font-size-16" type="checkbox" id="formCheck1" />
+                                        <label class="form-check-label font-size-16" for="formCheck1">
+                                            False
+                                        </label>
                                     </div>
                                 </td>
                                 <td className="text-center">
-                                    <div className="btn btn-success font-size-18 mx-1">
-                                        <i className="bx bx-edit"
-                                        // onClick={() => editModalFunc(item)}
-                                        ></i>
-                                        Javob yozish
-                                    </div>
-                                    <div className="btn btn-danger font-size-18 mx-1">
-                                        <i className="bx bx-trash"
-                                        // onClick={() => setDeleteModal({ isShow: true, id: item.id })}
-                                        ></i>
-                                        O'chirish
+                                    <div className="btn btn-danger font-size-18 mx-1" title="o'chirish"
+                                        onClick={() => setDeleteModal({ isShow: true, id: 0 })}>
+                                        <i className="bx bx-trash"></i>
                                     </div>
                                 </td>
                             </tr>
@@ -72,26 +68,24 @@ export default function Contacs() {
                 </div>
 
                 <div className="col-lg-12 mt-2">
-                    <ReactPaginate
-                        previousLabel="<<"
-                        nextLabel=">>"
-                        pageCount={100 / 10}
-                        breakLabel="..."
-                        className="paginate"
-                        activeClassName="active"
-                        pageRangeDisplayed={3}
-                        onPageChange={handlePageClick}
-                        forcePage={1}
-                        onPageActive={1}
-                    />
+                    <Pagination />
                 </div>
             </div>
 
             {
                 deleteModal.isShow && (
-                    <DeleteModal />
+                    <DeleteModal
+                        deleteFunc={deleteFunc}
+                        Alert={Alert}
+                        setAlert={setAlert}
+                        deleteModal={deleteModal}
+                        setDeleteModal={setDeleteModal}
+                    />
                 )
             }
+
+            {/* alert */}
+            <AlertContent alert={alert} />
         </>
     )
 }

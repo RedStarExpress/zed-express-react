@@ -1,7 +1,10 @@
-import React from 'react'
-import ReactPaginate from 'react-paginate'
+import React, { useState } from 'react'
+import Pagination from '../../../components/Pagination';
+import AddModal from './AddModal';
 
 export default function SkanerBaza() {
+    const [addModal, setAddModal] = useState(false)
+    const [data, setData] = useState([])
     const handlePageClick = (e) => {
         console.log(e);
     }
@@ -13,7 +16,10 @@ export default function SkanerBaza() {
                         <h2 class="mb-sm-0 font-size-24">Skaner baza</h2>
 
                         <div class="page-title-right">
-                            <div className="btn btn-primary">Yangi qo'shish</div>
+                            <div className="btn btn-primary"
+                                onClick={() => setAddModal(true)}>
+                                Yangi qo'shish
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,20 +91,20 @@ export default function SkanerBaza() {
                 </div>
 
                 <div className="col-lg-12 mt-2">
-                    <ReactPaginate
-                        previousLabel="<<"
-                        nextLabel=">>"
-                        pageCount={100 / 10}
-                        breakLabel="..."
-                        className="paginate"
-                        activeClassName="active"
-                        pageRangeDisplayed={3}
-                        onPageChange={handlePageClick}
-                        forcePage={1}
-                        onPageActive={1}
-                    />
+                    <Pagination />
                 </div>
             </div>
+
+            {
+                addModal && (
+                    <AddModal
+                        data={data}
+                        setData={setData}
+                        addModal={addModal}
+                        setAddModal={setAddModal}
+                    />
+                )
+            }
         </>
     )
 }
