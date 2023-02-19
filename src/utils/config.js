@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-    baseURL: "http://localhost:8080/",
+    baseURL: "http://95.46.96.45:48908/",
     headers: {
         "Authorization": "Bearer " + localStorage.getItem("token")
     // 'Content-Type': "application/x-www-form-urlencoded"
@@ -9,4 +9,4 @@ export const axiosInstance = axios.create({
 });
 
 
-export const urlFile = "http://localhost:8080/";
+export const urlFile = "http://95.46.96.45:48908/";
