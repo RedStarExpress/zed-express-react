@@ -7,19 +7,18 @@ export default function News() {
     }
     return (
         <>
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-sm-flex align-items-center justify-content-between">
                         <h2 class="mb-sm-0 font-size-24">Yangiliklar</h2>
 
                         <div class="page-title-right">
-                            <div className="btn btn-primary">Yangi qo'shish</div>
+                            <div className="btn btn-primary btn-lg">Yangi qo'shish</div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="row">
-                <div className="col-lg-12">
+
+                <div className="card-body">
                     <table class="table table-bordered align-middle mb-0 table-striped table-hover">
                         <thead>
                             <tr className='bg-primary text-white text-center'>
@@ -51,11 +50,12 @@ export default function News() {
                             </tr>
                         </tbody>
                     </table>
+
+                    <div className="mt-2">
+                        <Pagination />
+                    </div>
                 </div>
 
-                <div className="col-lg-12 mt-2">
-                    <Pagination />
-                </div>
             </div>
         </>
     )

@@ -16,15 +16,12 @@ export default function Contacs() {
     }
     return (
         <>
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h2 class="mb-sm-0 font-size-24">Sayt yoki bot orqali bog'langanlar</h2>
-                    </div>
+            <div class="card">
+                <div className="card-header">
+                    <h2 class="mb-sm-0 font-size-24 text-center">Sayt yoki bot orqali bog'langanlar</h2>
                 </div>
-            </div>
-            <div className="row">
-                <div className="col-lg-12">
+
+                <div className="card-body">
                     <table class="table table-bordered align-middle mb-0 table-striped table-hover">
                         <thead>
                             <tr className='bg-primary text-white text-center align-middle'>
@@ -65,10 +62,10 @@ export default function Contacs() {
                             </tr>
                         </tbody>
                     </table>
-                </div>
 
-                <div className="col-lg-12 mt-2">
-                    <Pagination />
+                    <div className="col-lg-12 mt-2">
+                        <Pagination />
+                    </div>
                 </div>
             </div>
 
